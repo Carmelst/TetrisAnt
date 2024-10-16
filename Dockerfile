@@ -6,7 +6,7 @@ RUN apt-get update -qq && \
     apt-get install -y -qq \
     openjdk-17-jdk \
     ant \
-    curl \
+    wget \
     unzip
 
 # Installer Apache Ivy (version 2.5.0 par exemple)
