@@ -10,7 +10,7 @@ RUN apt-get update -qq && \
     unzip
 
 # Installer Apache Ivy (version 2.5.0 par exemple)
-RUN curl -L https://downloads.apache.org/ant/ivy/2.5.0/apache-ivy-2.5.0-bin.zip -o ivy.zip && \
+RUN curl -L https://dlcdn.apache.org//ant/ivy/2.5.2/apache-ivy-2.5.2-bin.zip -o ivy.zip && \
     unzip ivy.zip -d /usr/share/ant/lib && \
     rm ivy.zip
 
