@@ -13,7 +13,7 @@ RUN apt-get update -qq && \
 RUN wget https://dlcdn.apache.org//ant/ivy/2.5.2/apache-ivy-2.5.2-bin.zip -qq 
 RUN unzip apache-ivy-2.5.2-bin.zip 
 RUN  ls -l
-RUN	cp -r apache-ivy-2.5.2-bin/* /usr/share/ant/lib
+RUN	cp -r apache-ivy-2.5.2/* /usr/share/ant/lib
 RUN	rm -r pache-ivy-2.5.2-bin/
 
 # Définir la variable d'environnement pour Java
