@@ -32,12 +32,12 @@
 	</path>
 
 	<target name="compile" depends="clean,retrieve">
-		<javac srcdir="${src}" destdir="${bin}" classpathref="compile.classpath">
+		<javac srcdir="${src}" destdir="${bin}" classpathref="compile.classpath" encoding="UTF-8">
 		</javac>
 	</target>
 	
 	<target name="compile-test">
-		<javac srcdir="${tests}" destdir="${bin}" classpathref="compile.classpath"></javac>
+		<javac srcdir="${tests}" destdir="${bin}" classpathref="compile.classpath" encoding="UTF-8"></javac>
 	</target>
 	
 	<target name="test" depends="compile-test">
