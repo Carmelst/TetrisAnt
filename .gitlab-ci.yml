@@ -2,11 +2,6 @@
 before_script:
   - apt-get update -qq && apt-get install -y -qq ant
 
-stages :
-	-compile
-	-test
-	-dist
-
 stages:
   - compile
   - test
