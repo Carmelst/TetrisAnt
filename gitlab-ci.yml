@@ -1,0 +1,21 @@
+stages :
+	-compile
+	-test
+	-dist
+compile_job:
+	stage: compile
+	script:
+		- echo "Compiling the project..."
+		- ant compile
+		
+test_job:
+	stage: test
+	script:
+		- echo "Running the tests and generating reports"
+		- ant test-reports
+		
+package_job:
+	stage: package
+	script:
+		- echo "Packaging the project"
+		- ant dist
