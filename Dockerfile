@@ -25,5 +25,8 @@ RUN ant -version && \
 # Définir le répertoire de travail
 WORKDIR /app
 
+# Copier le code source dans l'image (ajoutez votre chemin de code ici)
+COPY . .
+
 # Commande par défaut (à ajuster selon vos besoins)
 CMD ["ant"]
