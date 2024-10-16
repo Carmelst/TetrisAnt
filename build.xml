@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Compilation de Tetris" default="dist" xmlns:ivy="antlib:org.apache.ivy.ant">
+	<property name="src" value="./src"></property>
+	<property name="bin" value="./bin"></property>
+	<property name="libs" value="./lib"></property>
+	<property name="tests" value="./test"></property>
+	<property name="test.results.dir" value="${bin}/test-results"></property>
+	<property name="test.reports" value="./test-reports"></property>
+	<property name="doc.dir" value="./javadoc"></property>
+	<property name="main-class" value="fr.ubo.tetris.Tetris"></property>
+	<property name="commons.classpath" value="${libs}/commons-lang3-3.5.jar"></property>
+	<property name="version" value="1.0.0"></property>
+	
+	<target name="retrieve">
+		<ivy:settings />
+		<ivy:resolve />
+		<ivy:retrieve sync="true" type="jar" />
+	</target>
+	
+	<target name="clean">
+		<echo message="Suppression des fichiers issus de la compilation" />
+		<delete dir="${bin}"></delete>
+		<delete dir="${libs}"></delete>
+		<mkdir dir="${bin}"/>
+		<mkdir dir="${libs}"/>
+	</target>
+	
+	<path id="compile.classpath">
+	     <fileset dir="${libs}">
+	          <include name="*.jar"/>
+	      </fileset>
+	</path>
+
+	<target name="compile" depends="clean,retrieve">
+		<javac srcdir="${src}" destdir="${bin}" classpathref="compile.classpath">
+		</javac>
+	</target>
+	
+	<target name="compile-test">
+		<javac srcdir="${tests}" destdir="${bin}" classpathref="compile.classpath"></javac>
+	</target>
+	
+	<target name="test" depends="compile-test">
+		<delete dir="${test.results.dir}"></delete>
+		<mkdir dir="${test.results.dir}"/>
+		<junit printsummary="true" fork="true">
+			<classpath>
+				<pathelement path="${bin}"/>
+				<path refid="compile.classpath"></path>
+			</classpath>
+			<batchtest fork="yes" todir="${test.results.dir}">
+				<fileset dir="bin">
+					<include name="**/Test*.class"/>
+				</fileset>
+			</batchtest>
+			<formatter type="plain"/>
+			<formatter type="xml"/>
+		</junit>
+	</target>
+	
+	<target name="test-reports" depends="test">
+		<delete dir="${test.reports}"></delete>
+		<mkdir dir="${test.reports}"/>
+		<junitreport >
+			<fileset dir="${test.results.dir}">
+				<include name="*.xml"/>
+			</fileset>
+			<report format="frames" todir="${test.reports}"/>
+		</junitreport>
+	</target>
+	
+	<target name="javadoc">
+		<delete dir="${doc.dir}"></delete>
+		<mkdir dir="${doc.dir}"/>
+		<javadoc destdir="${doc.dir}" sourcepath="${src}" classpathref="compile.classpath">
+		</javadoc>
+	</target>
+	
+	<target name="dist" depends="compile">
+		<jar destfile="Tetris.jar" basedir="${bin}">
+			<manifest >
+				<attribute name="Built-By" value="Mani-Carmel"/>
+				<attribute name="Implementation-Version" value="${version}"/>
+				<attribute name="Main-Class" value="${main-class}"/>
+				<attribute name="Class-Path" value="${commons.classpath}"/>
+			</manifest>
+		</jar>
+		
+		<!--<java classpath="${compile.classpath}:./Tetris.jar" classname="${main-class}" fork="true"/>-->
+	</target>
+	
+	<target name="all" depends="dist,test-reports,javadoc">	
+	</target>
+	
+	
+	
+</project>
