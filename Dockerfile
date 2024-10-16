@@ -15,7 +15,7 @@ RUN curl -L https://downloads.apache.org/ant/ivy/2.5.0/apache-ivy-2.5.0-bin.zip 
     rm ivy.zip
 
 # Définir la variable d'environnement pour Java
-ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 # Vérifier les installations d'Ant et d'Ivy
 RUN ant -version && \
