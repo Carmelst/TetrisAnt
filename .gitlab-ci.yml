@@ -1,4 +1,5 @@
-
+image: openjdk:17
+image: ant:1.9.6
 
 stages:
   - compile
