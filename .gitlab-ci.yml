@@ -7,10 +7,6 @@ stages :
 	-test
 	-dist
 
-stages:
-  - compile
-  - test
-  - package
 
 compile_job:
   stage: compile
