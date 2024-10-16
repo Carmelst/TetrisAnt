@@ -4,17 +4,17 @@ FROM ubuntu:latest
 # Mettre à jour les paquets et installer les dépendances nécessaires
 RUN apt-get update -qq && \
     apt-get install -y -qq \
-    openjdk-17-jdk \
-    ant \
-    wget \
-    unzip
+    openjdk-17-jdk -qq \
+    ant -qq \
+    wget -qq \
+    unzip -qq
 
 # Installer Apache Ivy (version 2.5.0 par exemple)
 RUN wget https://dlcdn.apache.org//ant/ivy/2.5.2/apache-ivy-2.5.2-bin.zip -qq 
 RUN unzip apache-ivy-2.5.2-bin.zip 
-RUN  ls -l
 RUN	cp -r apache-ivy-2.5.2/* /usr/share/ant/lib
-RUN	rm -r apache-ivy-2.5.2-bin/
+RUN	rm -r apache-ivy-2.5.2/
+RUN rm -r apache-ivy-2.5.5-bin.zip
 
 # Définir la variable d'environnement pour Java
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
