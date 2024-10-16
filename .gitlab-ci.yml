@@ -1,7 +1,7 @@
-stages :
+stages:
 	-compile
 	-test
-	-dist
+	-package
 compile_job:
 	stage: compile
 	script:
