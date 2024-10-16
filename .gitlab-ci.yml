@@ -2,23 +2,22 @@
 image: ant:latest
 
 stages:
-	-compile
-	-test
-	-package
+  - compile
+  - test
+  - package
+
 compile_job:
-	stage: compile
-	script:
-		- echo "Compiling the project..."
-		- ant compile
-		
+  stage: compile
+  script:
+    - echo "Compiling the project..."
+    - ant compile	
 test_job:
-	stage: test
-	script:
-		- echo "Running the tests and generating reports"
-		- ant test-reports
-		
+  stage: test
+  script:
+    - echo "Running the tests and generating reports"
+    - ant test-reports		
 package_job:
-	stage: package
-	script:
-		- echo "Packaging the project"
-		- ant dist
+  stage: package
+  script:
+    - echo "Packaging the project"
+    - ant dist
