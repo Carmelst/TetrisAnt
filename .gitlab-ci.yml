@@ -2,7 +2,7 @@
 image : docker:latest
 
 services :
-  - docker : dind
+  - docker:dind
   
 variables:
   DOCKER_HOST: tcp://docker:2375
@@ -17,8 +17,8 @@ stages:
 build_job:
   stage: build
   script:
-    - docker build -t TetrisAnt .
-    - docker run --rm -v $CI_PROJECT_DIR::app TetrisAnt ant compile test-reports dist
+    - docker build -t tetrisant .
+    - docker run --rm -v $CI_PROJECT_DIR::app tetrisant ant compile test-reports dist
   artifacts:
     paths:
       - Tetris.jar
