@@ -10,10 +10,10 @@ RUN apt-get update -qq && \
     unzip
 
 # Installer Apache Ivy (version 2.5.0 par exemple)
-RUN wget https://dlcdn.apache.org//ant/ivy/2.5.2/apache-ivy-2.5.2-bin.zip -qq  && \
-    unzip apache-ivy-2.5.2-bin.zip && \
-	cp -r apache-ivy-2.5.2-bin/* /usr/share/ant/lib && \
-	rm -r pache-ivy-2.5.2-bin/
+RUN wget https://dlcdn.apache.org//ant/ivy/2.5.2/apache-ivy-2.5.2-bin.zip -qq 
+RUN unzip apache-ivy-2.5.2-bin.zip 
+RUN	cp -r apache-ivy-2.5.2-bin/* /usr/share/ant/lib
+RUN	rm -r pache-ivy-2.5.2-bin/
 
 # Définir la variable d'environnement pour Java
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
