@@ -14,7 +14,7 @@ RUN wget https://dlcdn.apache.org//ant/ivy/2.5.2/apache-ivy-2.5.2-bin.zip -qq
 RUN unzip apache-ivy-2.5.2-bin.zip 
 RUN  ls -l
 RUN	cp -r apache-ivy-2.5.2/* /usr/share/ant/lib
-RUN	rm -r pache-ivy-2.5.2-bin/
+RUN	rm -r apache-ivy-2.5.2-bin/
 
 # Définir la variable d'environnement pour Java
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
