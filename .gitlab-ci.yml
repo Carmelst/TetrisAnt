@@ -7,7 +7,6 @@ stages :
 	-test
 	-dist
 
-
 compile_job:
   stage: compile
   script:
