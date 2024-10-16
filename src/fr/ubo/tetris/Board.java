@@ -21,6 +21,7 @@ import javax.swing.Timer;
  * Description : Classe représentant une forme géométrique <br/>
  * Possède une liste finie définie dans l'énumération imbriquée Tetrominoes
  * 
+ * this line is just add to test the gitlab ci cd pipeline
  * @author zetcode.com
  * @see http://zetcode.com/tutorials/javagamestutorial/tetris/
  */
