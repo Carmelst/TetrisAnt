@@ -22,7 +22,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 # Vérifier les installations d'Ant et d'Ivy
 RUN ant -version && \
     java -version && \
-    ls /usr/share/ant/lib/ivy-2.5.0.jar
+    ls /usr/share/ant/lib
 
 # Définir le répertoire de travail
 WORKDIR /app
