@@ -1,5 +1,4 @@
 
-image: ant:latest
 
 stages:
   - compile
