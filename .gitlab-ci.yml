@@ -29,7 +29,7 @@ publish_manual_job:
     - docker push ${IMAGE_NAME}
   when: manual
   tags:
-    - dosi
+    - all
   only:
     - tags
     - master
