@@ -1,5 +1,7 @@
 # Utiliser Ubuntu comme image de base
 FROM ubuntu:latest
+RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
+
 
 # Mettre à jour les paquets et installer les dépendances nécessaires
 RUN apt-get update -qq && \

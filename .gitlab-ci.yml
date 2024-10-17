@@ -7,7 +7,7 @@ services :
 variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
-  IMAGE_NAME: ${DOCKER_HUB_USERNAME}/tetrisant:${CI_COMMIT_REF_NAME}
+  IMAGE_NAME: tetrisant:${CI_COMMIT_REF_NAME}
 stages:
   - build
   - publishmanual
