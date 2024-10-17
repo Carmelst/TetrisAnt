@@ -18,11 +18,11 @@ build_job:
     - echo "Image Name:${IMAGE_NAME}"
     - docker build -t tetrisant .
     - docker images
-	- docker run --name tetriscontainer tetrisant
-	- docker cp tetriscontainer:app/Tetris.jar Tetris.jar
-	- docker cp tetriscontainer:app/test-reports test-reports
-	- docker stop tetriscontainer
-	- docker rm tetriscontainer
+    - docker run --name tetriscontainer tetrisant
+    - docker cp tetriscontainer:app/Tetris.jar Tetris.jar
+    - docker cp tetriscontainer:app/test-reports test-reports
+    - docker stop tetriscontainer
+    - docker rm tetriscontainer
   artifacts:
     paths:
       - Tetris.jar
