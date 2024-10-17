@@ -84,7 +84,7 @@
 				<attribute name="Main-Class" value="${main-class}"/>
 				<attribute name="Class-Path" value="${commons.classpath}"/>
 			</manifest>
-			<fileset file="${commons.classpath}"></fileset>
+			<!--<fileset file="${commons.classpath}"></fileset>-->
 		</jar>
 		
 		<!--<java classpath="${compile.classpath}:./Tetris.jar" classname="${main-class}" fork="true"/>-->
