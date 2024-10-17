@@ -33,7 +33,7 @@ publish_manual_job:
   script:
     - echo "Publishing application"
     - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
-    - docker tag stmanicarmel/tetrisant:$CI_COMMIT_TAG
+    - docker tag tetrisant stmanicarmel/tetrisant:$CI_COMMIT_TAG
     - docker push stmanicarmel/tetrisant:$CI_COMMIT_TAG
   when: manual
   only:
