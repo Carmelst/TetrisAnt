@@ -15,7 +15,6 @@ stages:
 build_job:
   stage: build
   script:
-	- echo "Building the application"
     - docker build -t tetrisant .
   artifacts:
     paths:
@@ -25,7 +24,6 @@ build_job:
 publish_manual_job:
 	stage: publish_manual
 	script:
-	    - echo "Publishing the application..."
 	    - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
 	    - docker push ${IMAGE_NAME}
 	 when: manual
