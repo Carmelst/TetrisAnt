@@ -31,8 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
           name: Tetris
-          path: Tetris.jar
-	  
+          path: Tetris.jar  
       - name: Download output files
         uses: actions/upload-artifact@v3
         with:
