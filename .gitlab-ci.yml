@@ -28,8 +28,6 @@ publish_manual_job:
     - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
     - docker push ${IMAGE_NAME}
   when: manual
-  tags:
-    - all
   only:
     - tags
     - master
