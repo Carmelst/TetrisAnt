@@ -35,7 +35,6 @@ jobs:
 	  
       - name: Download output files
         uses: actions/upload-artifact@v3
-	with:
-          name: test-reports
-	  path: test-reports
-
+        with:
+	  name: test-reports
+          path: test-reports
