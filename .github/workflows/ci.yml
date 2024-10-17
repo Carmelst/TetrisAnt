@@ -11,26 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      -name: Checkout code
-       uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      -name: Set up Docker Buildx
-       uses: docker/setup-buildx-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
-      -name: Build TetrisAnt docker image
-       run: |
-         docker build -t tetrisant
-      -name: Run TetrisAnt container and extract files
-       run: |
-         docker run -d --name tetriscontainer tetrisant 
-         docker cp tetriscontainer:/app/Tetris.jar
-         docker cp tetriscontainer:/app/test-reports
-         docker rm tetriscontainer
+      - name: Build TetrisAnt docker image
+        run: |
+          docker build -t tetrisant
+      - name: Run TetrisAnt container and extract files
+        run: |
+          docker run -d --name tetriscontainer tetrisant 
+          docker cp tetriscontainer:/app/Tetris.jar
+          docker cp tetriscontainer:/app/test-reports
+          docker rm tetriscontainer
 
-      -name: Download output files
-       uses: actions/upload-artifact@v3
-       with: 
-         name: Tetris
-         path: Tetris.jar
+      - name: Download output files
+        uses: actions/upload-artifact@v3
+        with: 
+          name: Tetris
+          path: Tetris.jar
 
 
