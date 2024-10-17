@@ -33,3 +33,5 @@ publish_manual_job:
   only:
     - tags
     - master
+  dependencies:
+      - "build_job"
