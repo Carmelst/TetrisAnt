@@ -24,10 +24,10 @@ build_job:
 publish_manual_job:
 	stage: publish_manual
 	script:
-	    - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
-	    - docker push ${IMAGE_NAME}
-	 when: manual
-	 tags:
+    - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+    - docker push ${IMAGE_NAME}
+	when: manual
+	tags:
        - dosi
-	 only:
+	only:
        - tags
