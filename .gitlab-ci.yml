@@ -10,7 +10,7 @@ variables:
   IMAGE_NAME: ${DOCKER_HUB_USERNAME}/tetrisant:${CI_COMMIT_SHORT_SHA}
 stages:
   - build
-  - publish_manual
+  - publishmanual
 
 build_job:
   stage: build
@@ -22,12 +22,12 @@ build_job:
       - test-reports	
 
 publish_manual_job:
-	stage: publish_manual
+  stage: publishmanual
 	script:
     - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
     - docker push ${IMAGE_NAME}
 	when: manual
 	tags:
-       - dosi
+    - dosi
 	only:
-       - tags
+    - tags
