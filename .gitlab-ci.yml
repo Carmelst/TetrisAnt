@@ -32,3 +32,4 @@ publish_manual_job:
     - dosi
   only:
     - tags
+    - master
