@@ -15,7 +15,6 @@ build_job:
   stage: build
   script:
     - docker build -t tetrisant .
-    - docker run --rm -v $CI_PROJECT_DIR:/app tetrisant ant compile test-reports dist
   artifacts:
     paths:
       - Tetris.jar

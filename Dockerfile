@@ -31,5 +31,9 @@ WORKDIR /app
 # Copier le code source dans l'image (ajoutez votre chemin de code ici)
 COPY . .
 
+RUN ant compile
+RUN ant test-reports
+RUN ant dist
+
 # Commande par défaut (à ajuster selon vos besoins)
 CMD ["ant"]
