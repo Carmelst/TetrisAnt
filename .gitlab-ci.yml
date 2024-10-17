@@ -7,17 +7,29 @@ services :
 variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
-  
+  IMAGE_NAME: ${DOCKER_HUB_USERNAME}/tetrisant:${CI_COMMIT_SHORT_SHA}
 stages:
   - build
+  - publish_manual
 
 build_job:
   stage: build
   script:
+	- echo "Building the application"
     - docker build -t tetrisant .
   artifacts:
     paths:
       - Tetris.jar
       - test-reports	
 
-    
+publish_manual_job:
+	stage: publish_manual
+	script:
+	    - echo "Publishing the application..."
+	    - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+	    - docker push ${IMAGE_NAME}
+	 when: manual
+	 tags:
+       - dosi
+	 only:
+       - tags
