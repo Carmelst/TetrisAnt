@@ -20,14 +20,14 @@ build_job:
     paths:
       - Tetris.jar
       - test-reports	
-
+      
 publish_manual_job:
   stage: publishmanual
-	script:
+  script:
     - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
     - docker push ${IMAGE_NAME}
-	when: manual
-	tags:
+  when: manual
+  tags:
     - dosi
-	only:
+  only:
     - tags
