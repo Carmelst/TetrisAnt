@@ -18,7 +18,7 @@ jobs:
 
       - name: Build TetrisAnt docker image
         run: |
-          docker build -t tetrisant
+          docker build -t tetrisant .
       - name: Run TetrisAnt container and extract files
         run: |
           docker run -d --name tetriscontainer tetrisant 
