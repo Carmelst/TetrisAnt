@@ -15,9 +15,9 @@ stages:
 build_job:
   stage: build
   script:
-	- echo "Image name : ${IMAGE_NAME}"
+    - echo "Image Name:${IMAGE_NAME}"
     - docker build -t ${IMAGE_NAME} .
-	- docker images
+    - docker images
   artifacts:
     paths:
       - Tetris.jar
@@ -33,3 +33,5 @@ publish_manual_job:
   only:
     - tags
     - master
+  dependencies:
+      - "build_job"
