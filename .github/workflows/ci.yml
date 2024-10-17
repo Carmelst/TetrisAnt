@@ -22,8 +22,8 @@ jobs:
       - name: Run TetrisAnt container and extract files
         run: |
           docker run -d --name tetriscontainer tetrisant 
-          docker cp tetriscontainer:/app/Tetris.jar
-          docker cp tetriscontainer:/app/test-reports
+          docker cp tetriscontainer:/app/Tetris.jar Tetris.jar
+          docker cp tetriscontainer:/app/test-reports test-reports
           docker rm tetriscontainer
 
       - name: Download output files
