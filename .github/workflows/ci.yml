@@ -24,7 +24,7 @@ jobs:
           docker run -d --name tetriscontainer tetrisant 
           docker cp tetriscontainer:/app/Tetris.jar Tetris.jar
           docker cp tetriscontainer:/app/test-reports test-reports
-		  docker stop tetriscontainer
+          docker stop tetriscontainer
           docker rm tetriscontainer
 
       - name: Download output files
