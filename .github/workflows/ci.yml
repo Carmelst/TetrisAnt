@@ -32,9 +32,10 @@ jobs:
         with: 
           name: Tetris
           path: Tetris.jar
+	  
       - name: Download output files
-	uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
 	with:
-	  name: test-reports
-          path: test-reports
+          name: test-reports
+	  path: test-reports
 
